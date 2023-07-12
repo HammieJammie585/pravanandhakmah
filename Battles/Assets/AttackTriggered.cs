@@ -1,3 +1,4 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,21 +7,25 @@ public class AttackTriggered : StateMachineBehaviour
 {
     public GameObject enemy;
     public float attackrange;
+    private AIDestinationSetter AID;
     Rigidbody2D rb;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         rb = animator.GetComponent<Rigidbody2D>();
         enemy = GameObject.FindGameObjectWithTag("TEST1");
+        AID = animator.GetComponent<AIDestinationSetter>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        enemy = AID.target.gameObject;
         if (Vector2.Distance(enemy.transform.position, rb.position) <= attackrange)
         {
             animator.SetTrigger("Attack");
         }
+        
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
