@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TEST1
   - PlayerSummonedCharacters
+  - AISummonedCharacters
   layers:
   - Default
   - TransparentFX

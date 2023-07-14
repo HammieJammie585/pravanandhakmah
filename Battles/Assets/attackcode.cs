@@ -14,10 +14,9 @@ public class attackcode : MonoBehaviour
     private void Update()
     {
         ThePersonYourFighting = GetComponent<AIDestinationSetter>().target.gameObject;
-        if (helthofguy == null)
-        {
-            helthofguy = ThePersonYourFighting.GetComponent<health>();
-        }
+        helthofguy = ThePersonYourFighting.GetComponent<health>();
+
+        
     }
 
     // Update is called once per frame

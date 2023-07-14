@@ -13,7 +13,7 @@ public class AttackTriggered : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         rb = animator.GetComponent<Rigidbody2D>();
-        enemy = GameObject.FindGameObjectWithTag("TEST1");
+        
         AID = animator.GetComponent<AIDestinationSetter>();
     }
 
@@ -21,6 +21,7 @@ public class AttackTriggered : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         enemy = AID.target.gameObject;
+        Debug.Log(enemy);
         if (Vector2.Distance(enemy.transform.position, rb.position) <= attackrange)
         {
             animator.SetTrigger("Attack");
