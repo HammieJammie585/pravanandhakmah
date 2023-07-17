@@ -20,9 +20,6 @@ public class health : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            TakeDamage(3);
-        }
+        
     }
 }
